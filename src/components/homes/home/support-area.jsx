@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-
+import Count from '@/src/common/count';
+import htmlcontentservice from '@/src/service/htmlcontentservice';
+import React, { useEffect, useState } from 'react';
 
 const SupportArea = () => {
-    const[itContent,setItContent]=useState("")
+    const [supportContent, setSupportContent] = useState([]);
+const GetSupportContent = async () => {
+    var response = await htmlcontentservice.GetHtmlContentListbyKey(1,99,"gray-supportarea","en");
+    if (response.Code == 200) {
+        setSupportContent(response.Data?.HtmlContentVM[0]?.ContentHtml);
+    }
+};
+    useEffect(() => {GetSupportContent()}, []);
     return (
         <>
-          
-           {/* <div  dangerouslySetInnerHTML={{__html:itContent}}></div> */}
-           <section className="tp-support-feature-area pb-100">
-            {/* <div className="container container-large">
-               <div className="row">
+            <section className="tp-support-feature-area pb-100">
+            <div className="container container-large">
+               {/* <div className="row">
                 {support_content.map((item, i) =>
                     <div key={i} className="col-lg-4">
                         <div className="tp-support-feature-item d-flex p-relative fadeRight">
@@ -28,10 +34,10 @@ const SupportArea = () => {
                         </div>
                     </div>                
                 )}  
-               </div>
-            </div> */}
-            
-           <div  dangerouslySetInnerHTML={{__html:itContent}}></div>
+               </div> */}
+                <div  dangerouslySetInnerHTML={{__html:supportContent}}></div>
+         
+            </div>
          </section>
         </>
     );

@@ -34,7 +34,7 @@ const setting =  {
 const TestimonialArea = () => {    
   const [testimonial, setTestimonial]=useState("");
   const GetTestimonialList=async()=>{
-var response=await htmlcontentservice.GetTestimonialsbyKey(1,99,"Graycode-Testimonials", "en")
+var response=await htmlcontentservice.GetTestimonialsbyKey(1,99,"graycode_Testimonials", "en")
 if(response.Code==200){
     setTestimonial(response.Data)
 }

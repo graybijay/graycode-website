@@ -15,14 +15,14 @@ const FaqArea = () => {
     const [faq,setFaq]=useState("")
     const[faqImg,setFaqImg]=useState("")
     const GetFaqList=async()=>{
-      var response=await htmlcontentservice.GetFAQHomeListbyKey(1,99,"Graycode_Home_FAQ", "en")
+      var response=await htmlcontentservice.GetFAQHomeListbyKey(1,99,"Graycode_HomeFAQ", "en")
       if(response.Code==200){
          setFaq(response.Data.FAQOutputs)
       }
     }
     useEffect(()=>{GetFaqList()},[])
  const GetFaqImage=async()=>{
-   var response=await htmlcontentservice.GetBannerImageListbyKey(1,99,"Graycode_FAQBanner", "en")
+   var response=await htmlcontentservice.GetBannerImageListbyKey(1,99,"Graycode-FAQBanner", "en")
    if(response.Code==200){
       setFaqImg(response?.Data?.Banners[0])
    }

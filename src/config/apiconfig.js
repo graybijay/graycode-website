@@ -1,5 +1,5 @@
 // let Base_URL = "https://api.graycode.com.np";
-let Base_URL = "https://graycodeapi.graycode.com.np";
+let Base_URL = "https://api.graycode.com.np";
 let Host_URL ="http://localhost:3000";
 // let Host_URL ="https://graycodeadmin.graycode.com.np/";
 let CompanyId="45"

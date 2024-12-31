@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 const PortfolioArea = () => {
     const [isPortfolio,setIsPortfolio]=useState("")
     const GetPortfolioList=async()=>{
-        var response=await htmlcontentservice.GetNewsbyKey(1,99,"Graycode_Portfolio","en")
+        var response=await htmlcontentservice.GetNewsbyKey(1,99,"Graycode-Portfolio","en")
         if(response.Code==200){
             setIsPortfolio(response?.Data?.NewsOutputVM)
         }

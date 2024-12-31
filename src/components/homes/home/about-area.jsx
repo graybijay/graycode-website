@@ -61,9 +61,9 @@ const AboutArea = () => {
 
   useEffect(() => {
     const getServiceList = async () => {
-      const response = await htmlcontentservice.GetTestimonialsbyKey(1, 99, "Graycode-services", "en");
+      const response = await htmlcontentservice.GetTestimonialsbyKey(1, 99, "Graycode_services", "en");
       if (response.Code === 200) {
-        setServices(response.Data.TestimonialOutputListVM);
+        setServices(response.Data?.TestimonialOutputListVM);
       }
     };
 
@@ -71,7 +71,7 @@ const AboutArea = () => {
   }, []);
   useEffect(() => {
     const GetAboutImg = async () => {
-      const response = await htmlcontentservice.GetBannerImageListbyKey(1, 99, "Graycode-bannerImage", "en");
+      const response = await htmlcontentservice.GetBannerImageListbyKey(1, 99, "Graycode_bannerImage", "en");
       if (response.Code === 200) {
         setAboutImg(response?.Data?.Banners[0]);
       }
@@ -133,7 +133,7 @@ const AboutArea = () => {
                   </div>
                 </div>
                 <div className="tp-about-item-wrapper">
-                  {services.length > 0 && (
+                  {services?.length > 0 && (
                     <Swiper {...setting} modules={[Navigation]} ref={swiperRef} className="about-active swiper-container">
                       {services.map((item, i) => (
                         <SwiperSlide key={i} className="tp-about-item mb-30">

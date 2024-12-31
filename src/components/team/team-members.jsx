@@ -16,7 +16,7 @@ import { ApiEndPoints } from '@/src/config/apiconfig';
 const TeamMembers = () => {
     const [teams,setTeams]=useState("")
     const GetTeamList=async()=>{
-        var response=await htmlcontentservice.GetTeamsListbyKey(1, 99, "Graycode_Teams", "en")
+        var response=await htmlcontentservice.GetTeamsListbyKey(1, 99, "Graycode-Teams", "en")
         if(response.Code==200){
             setTeams(response.Data.TeamListVM)
         }

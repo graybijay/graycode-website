@@ -20,9 +20,9 @@ const Sidebar = ({sidebarOpen, setSidebarOpen, home_three}) => {
     setIsOpen(true);
   };
  const getMediaGallary=async(pageNo, pageSize,query)=>{
-    let response=await htmlcontentservice.GetWebGallaryListByKey(pageNo, pageSize,"Graycode-sidebargallary",query);
+    let response=await htmlcontentservice.GetWebGallaryListByKey(pageNo, pageSize,"Graycode_sidebargallary",query);
     if(response.Code==200){
-     setData(response.Data.MediaGalleryListVMS)
+     setData(response.Data?.MediaGalleryListVMS)
     }
  }
  useEffect(()=>{

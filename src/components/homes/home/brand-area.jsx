@@ -12,6 +12,8 @@ import shape_7 from "@assets/img/brand/img-8.png";
 import shape_8 from "@assets/img/brand/img-9.png"; 
 import shape_9 from "@assets/img/brand/shape-3.png"; 
 
+import brand_thumb from "@assets/img/brand/img-1.png"; 
+import bg_shape from "@assets/img/brand/shape-1.png"; 
 import htmlcontentservice from '@/src/service/htmlcontentservice';
 
 // shape data 
@@ -45,22 +47,27 @@ const BrandArea = () => {
       mouseRef.current.style.setProperty('--x', 1);
       mouseRef.current.style.setProperty('--y', 1);
     };
-  const [itContent,setItContent]=useState("")
-  const fetchItContentList = async () => {
-   const response = await htmlcontentservice.GetHtmlContentListbyKey(1, 99, "Graycode_ServiceSolution", "en");
-   if (response.Code === 200) {
-     setItContent(response.Data?.HtmlContentVM[0]?.ContentHtml);
-   }
- };
- useEffect(()=>{fetchItContentList()},[])
+const [brandarea,setBrandarea]=useState("")
+const GetBrandArea=async()=>{
+  var response=await htmlcontentservice.GetHtmlContentListbyKey(1,99,"graycode-brandarea","en")
+  if(response.Code==200){
+     setBrandarea(response.Data?.HtmlContentVM[0]?.ContentHtml)
+  }
+}
+useEffect(()=>{GetBrandArea()},[])
+
+
   
     return (
         <>
-         
-           <div  dangerouslySetInnerHTML={{__html:itContent}}>
-           
-
-</div>
+        <div id="mousemove" ref={mouseRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="tp-brand-area pt-160 p-relative">
+            <div className="container container-large">
+               <div className="tp-brand-shape">
+                  <Image className="bg-shape" src={bg_shape} alt="theme-pure" />
+               </div>
+               <div dangerouslySetInnerHTML={{__html:brandarea}}></div>
+            </div>
+         </div>
         </>
     );
 };

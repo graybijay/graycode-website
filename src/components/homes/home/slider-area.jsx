@@ -25,7 +25,7 @@ const SliderArea = () => {
     const sliderRef = useRef(null)
 const [slider,setSlider]=useState("");
 const GetSliderBanner=async()=>{
-    let response=await htmlcontentservice.GetBannerImageListbyKey(1,99, "Graycode-SliderBanner","en")
+    let response=await htmlcontentservice.GetBannerImageListbyKey(1,99, "Graycode_SliderBanner","en")
     if (response.Code==200){
         setSlider(response?.Data?.Banners)
     }

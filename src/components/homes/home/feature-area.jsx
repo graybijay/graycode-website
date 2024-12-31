@@ -16,7 +16,7 @@ const FeatureArea = ({ about }) => {
     var response = await htmlcontentservice.GetTestimonialsbyKey(
       1,
       99,
-      "Graycode-features",
+      "Graycode_features",
       "en"
     );
     if (response.Code == 200) {
@@ -64,8 +64,8 @@ const FeatureArea = ({ about }) => {
           </div>
           <div className="row">
             {features &&
-              features.TestimonialOutputListVM.length > 0 &&
-              features.TestimonialOutputListVM.map((item, i) => (
+              features.TestimonialOutputListVM?.length > 0 &&
+              features.TestimonialOutputListVM?.map((item, i) => (
                 <div key={i} className="col-lg-4 col-md-6">
                   <div
                     className="tp-feature-item-box p-relative wow fadeInUp"

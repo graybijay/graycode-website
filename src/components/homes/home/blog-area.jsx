@@ -52,8 +52,8 @@ const BlogArea = () => {
             </div>
 
             {homeBlog &&
-              homeBlog.length > 0 &&
-              homeBlog.slice(0, 3).map((item, i) => (
+              homeBlog?.length > 0 &&
+              homeBlog?.slice(0, 3).map((item, i) => (
                 <div key={i} className="col-lg-4 col-md-6">
                   <div className="tp-blog-wrapper mb-30">
                     <div className="tp-blog-thumb">
